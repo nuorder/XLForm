@@ -172,7 +172,7 @@
                     [self.formViewController dismissViewControllerAnimated:NO completion:nil];
                 }
                 selectorViewController.modalPresentationStyle = UIModalPresentationPopover;
-                
+
                 selectorViewController.popoverPresentationController.delegate = self;
                 if (self.detailTextLabel.window){
                     selectorViewController.popoverPresentationController.sourceRect = CGRectMake(0, 0, self.detailTextLabel.frame.size.width, self.detailTextLabel.frame.size.height);
@@ -183,7 +183,7 @@
                     selectorViewController.popoverPresentationController.sourceView = self;
                     selectorViewController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
                 }
-                
+
                 [self.formViewController presentViewController:selectorViewController
                                                       animated:YES
                                                     completion:nil];
@@ -201,7 +201,7 @@
 
 			if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeSelectorPopover]) {
                 optionsViewController.modalPresentationStyle = UIModalPresentationPopover;
-                
+
                 optionsViewController.popoverPresentationController.delegate = self;
                 if (self.detailTextLabel.window){
                     optionsViewController.popoverPresentationController.sourceRect = CGRectMake(0, 0, self.detailTextLabel.frame.size.width, self.detailTextLabel.frame.size.height);
@@ -212,7 +212,7 @@
                     optionsViewController.popoverPresentationController.sourceView = self;
                     optionsViewController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
                 }
-                
+
                 [self.formViewController presentViewController:optionsViewController
                                                       animated:YES
                                                     completion:nil];
@@ -238,7 +238,7 @@
 
         if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeMultipleSelectorPopover]) {
             optionsViewController.modalPresentationStyle = UIModalPresentationPopover;
-            
+
             optionsViewController.popoverPresentationController.delegate = self;
             if (self.detailTextLabel.window){
                 optionsViewController.popoverPresentationController.sourceRect = CGRectMake(0, 0, self.detailTextLabel.frame.size.width, self.detailTextLabel.frame.size.height);
@@ -249,7 +249,7 @@
                 optionsViewController.popoverPresentationController.sourceView = self;
                 optionsViewController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
             }
-            
+
             [self.formViewController presentViewController:optionsViewController
                                                   animated:YES
                                                 completion:nil];
