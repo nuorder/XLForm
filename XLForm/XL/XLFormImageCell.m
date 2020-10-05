@@ -75,13 +75,13 @@
     alertController = [UIAlertController alertControllerWithTitle: self.rowDescriptor.title
                                                           message: nil
                                                    preferredStyle: UIAlertControllerStyleActionSheet];
-    
+
     [alertController addAction:[UIAlertAction actionWithTitle: NSLocalizedString(@"Choose From Library", nil)
                                                         style: UIAlertActionStyleDefault
                                                       handler: ^(UIAlertAction * _Nonnull action) {
                                                           [weak openImage:UIImagePickerControllerSourceTypePhotoLibrary];
                                                       }]];
-    
+
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [alertController addAction:[UIAlertAction actionWithTitle: NSLocalizedString(@"Take Photo", nil)
                                                             style: UIAlertActionStyleDefault
@@ -89,7 +89,7 @@
                                                               [weak openImage:UIImagePickerControllerSourceTypeCamera];
                                                           }]];
     }
-    
+
     [alertController addAction:[UIAlertAction actionWithTitle: NSLocalizedString(@"Cancel", nil)
                                                         style: UIAlertActionStyleCancel
                                                       handler: nil]];
@@ -99,7 +99,7 @@
         alertController.popoverPresentationController.sourceView = self.contentView;
         alertController.popoverPresentationController.sourceRect = self.contentView.bounds;
     }
-    
+
     dispatch_async(dispatch_get_main_queue(), ^{
         [weak.formViewController presentViewController:self->alertController animated: true completion: nil];
     });
@@ -111,14 +111,14 @@
     imagePickerController.delegate = self;
     imagePickerController.allowsEditing = YES;
     imagePickerController.sourceType = source;
-    
+
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         imagePickerController.modalPresentationStyle = UIModalPresentationPopover;
         imagePickerController.popoverPresentationController.sourceRect = self.contentView.frame;
         imagePickerController.popoverPresentationController.sourceView = self.formViewController.view;
         imagePickerController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
     }
-    
+
     [self.formViewController presentViewController: imagePickerController
                                           animated: YES
                                         completion: nil];
@@ -129,13 +129,13 @@
 {
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    
+
     if (editedImage) {
         [self chooseImage:editedImage];
     } else {
         [self chooseImage:originalImage];
     }
-    
+
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         if (self.formViewController.presentedViewController && self.formViewController.presentedViewController.modalPresentationStyle == UIModalPresentationPopover) {
             [self.formViewController dismissViewControllerAnimated:YES completion:nil];
