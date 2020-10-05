@@ -99,7 +99,7 @@
         _form = nil;
         _tableViewStyle = UITableViewStyleGrouped;
     }
-    
+
     return self;
 }
 
@@ -109,16 +109,16 @@
 
     self.tableView.delegate = nil;
     self.tableView.dataSource = nil;
-    
+
     self.form.delegate = nil;
-    
+
     self.navigationAccessoryView = nil;
 }
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     UITableView *tableView = self.tableView;
     if (!tableView){
         tableView = [[UITableView alloc] initWithFrame:self.view.bounds
@@ -162,7 +162,7 @@
         [self.tableView selectRowAtIndexPath:selected animated:NO scrollPosition:UITableViewScrollPositionNone];
         [self.tableView deselectRowAtIndexPath:selected animated:YES];
     }
-    
+
     [self addObserverToController];
 }
 
@@ -178,7 +178,7 @@
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    
+
     [self removeObserverFromController];
 }
 
@@ -872,8 +872,8 @@
     UITableViewCell<XLFormDescriptorCell>* cell = textField.formDescriptorCell;
     XLFormRowDescriptor * nextRow     = [self nextRowDescriptorForRow:textField.formDescriptorCell.rowDescriptor
                                                         withDirection:XLFormRowNavigationDirectionNext];
-    
-    
+
+
     if ([cell conformsToProtocol:@protocol(XLFormReturnKeyProtocol)]) {
         textField.returnKeyType = nextRow ? ((id<XLFormReturnKeyProtocol>)cell).nextReturnKeyType : ((id<XLFormReturnKeyProtocol>)cell).returnKeyType;
     }
@@ -1054,4 +1054,3 @@
 }
 
 @end
-
