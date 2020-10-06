@@ -34,6 +34,3 @@
 
 @end
 
-@protocol XLFormRowDescriptorPopoverViewController <NSObject>
-
-@end

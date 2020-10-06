@@ -205,7 +205,8 @@
                                                               weak.rowDescriptor.leftRightSelectorLeftOptionSelected = [weak leftOptionForDescription:[leftOption.leftValue displayText]].leftValue;
                                                               [weak.formViewController updateFormRow:weak.rowDescriptor];
                                                           }]];
-
+    }
+    
     [self.formViewController presentViewController:alertController animated:YES completion:nil];
 }
 
