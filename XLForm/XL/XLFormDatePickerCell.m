@@ -44,7 +44,9 @@
     if (_datePicker) return _datePicker;
     _datePicker = [UIDatePicker autolayoutView];
     [_datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
-    _datePicker.preferredDatePickerStyle = UIDatePickerStyleWheels;
+    if (@available(iOS 13.4, *)) {
+        _datePicker.preferredDatePickerStyle = UIDatePickerStyleWheels;
+    }
     return _datePicker;
 }
 
@@ -69,6 +71,9 @@
     [super configure];
 
     UIDatePicker *datePicker = [UIDatePicker autolayoutView];
+    if (@available(iOS 13.4, *)) {
+        datePicker.preferredDatePickerStyle = UIDatePickerStyleWheels;
+    }
     [datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     [self.contentView addSubview:datePicker];
     _datePicker = datePicker;
